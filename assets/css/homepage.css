@@ -30,7 +30,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: 6rem;
+    font-size: 5rem;
     color: #A6B6F8;
     margin-bottom: 5rem;
 }
@@ -41,12 +41,12 @@ h1 span{
 }
 
 h2 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 700;
 }
 
 h3 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 600;
 }
 
@@ -65,6 +65,7 @@ h4 {
     margin-top: 10rem;
     margin-bottom: 2rem;
     flex-direction: column;
+    padding: 5rem;
 }
 
 .homepage-header{
@@ -133,25 +134,36 @@ h4 {
     cursor: pointer;
   }
 
-  .scoreboard ul {
-   list-style: none;
-   margin: 0;
-   padding: 0;
-  }
-
-  .scoreboard li {
-    display: inline-block;
-    margin: .3rem;
-  }
-
-  .quiz-timer {
-    background-color: #6525E4;
-    text-align: center;
-    border-radius: 1.6rem;
-    font-weight: 700;
-  }
-
-  btn {
+  .btn {
     top: 1rem;
     left: 2rem;
+    border: none;
+    background-color: #6525E4;
+    border-radius: 1.6rem;
+    box-shadow: #222532;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 2rem;
+    line-height: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 20rem;
   }
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+input {
+    margin-bottom: 2rem;
+    width: 20rem;
+    padding: 1rem;
+    font-size: 2rem;
+    border: none;
+    box-shadow: 0 0.5rem 2rem 0 #222532;
+    color: #222532;
+}

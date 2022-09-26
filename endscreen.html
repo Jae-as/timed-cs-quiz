@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> HTML CSS JS Quiz - Summary </title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type = "text/css" href="./assets/css/homepage.css"/>
+</head>
+<body>
+<nav>
+    <btn><a class="nav-btn" href="#" id="high-scores">View High Scores</a></btn>
+</nav>
+<section class="container">
+    <h1>Comgratulations</h1>
+    <h2>Final Score <span id = "final-score"> 0 </span></h2>
+    <form>
+    <input
+    type = "text"
+    initials = "initials"
+    id = "initials"
+    placeholder= "JW"
+    />
+    <button 
+    type = "submit" 
+    class = "btn" 
+    id = "save-score" 
+    onclick="saveScore(event)"> Submit </button>
+    </form>
+    <a class="btn" href="timed-cs-quiz/questions.html">Play Again</a>
+    <a class="btn" href="timed-cs-quiz/homepage.html">Go Home</a>
+
+</section>
+<script src="./assets/js/endscreen.js"></script>
+</body>
+</html>

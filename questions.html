@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> Quiz Questions </title>
+    <title> HTML CSS JS Quiz - Questions </title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type = "text/css" href="./assets/css/homepage.css"/>
@@ -15,15 +15,19 @@
     </section>
     <section>
     <div class="scoreboard">
-        <ul class = "answer-score-container">
+        <ul class = "answer-score-container" id="score">
             <div>
-            <li>Correct: <span class="correct">0 </span> </li>
-            <li>Incorrect: <span class="incorrect">0</span></li>
+            <li>Score: <span class="score-text" id="question-score">0 </span> </li>
+            </div>
+        </ul>
+        <ul class = "question-count-container">
+            <div>
+            <li> <em id="question-count"> 1 </em> of 10</li>
             </div>
         </ul>
         <ul class= "quiz-timer">
             <div class = "timer-text">
-            <li><em class="large-font timer-count">240</em> seconds remaining</li>
+            <li><em class="timer-count" id="timer-countdown">240</em> seconds remaining</li>
             </div>
         </ul>
     </div>
@@ -48,6 +52,6 @@
         </section>
     </header>
 
-<script src="./assets/script.js"></script>
+<script src="./assets/js/general.js"></script>
 </body>
 </html>

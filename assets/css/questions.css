@@ -35,7 +35,6 @@
     right: 2rem;
     font-size: 1.5rem;
     margin: 0;
-    color: #888;
     z-index: 1;
     display: block;
     margin-block-start: 1em;
@@ -47,6 +46,45 @@
 
 .answer-score-container {
     display: flex;
-    justify-content: left;
     margin-top: 3rem;
   }
+
+#score{
+    text-align: center;
+
+}
+
+  .correct {
+    box-shadow: 0 0.5rem 2rem 0 #43F860;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+  }
+
+  .incorrect{
+    box-shadow: 0 0.5rem 2rem 0 #EF3716;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+  }
+
+  .quiz-timer {
+    background-color: #6525E4;
+    text-align: center;
+    border-radius: 1.6rem;
+    font-weight: 700;
+  }
+
+  .question-count-container {
+    text-align:  center;
+  }
+
+  .scoreboard ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+   }
+ 
+   .scoreboard li {
+     display: inline-block;
+     margin: .3rem;
+     text-align: center;
+   }

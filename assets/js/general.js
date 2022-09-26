@@ -1,8 +1,10 @@
 
 //var homepage = document.querySelector("#homepagerheader");
-//var startQuiz = document.querySelector("#start-quiz");
 //var hgihScores = document.querySelector("high-scores");
-var question = document.getElementById("question");
+var question = document.querySelector("#question");
+var scoreText = document.querySelector("#question-score");
+var questionCountText = document.querySelector("#question-count");
+var timerCountdown = document.querySelector("#timer-countdown");
 var options = Array.from(document.getElementsByClassName("answer-text"));
 console.log(options);
 
@@ -165,24 +167,36 @@ let questions = [
 
 ];
 
-var CORRECT_BONUS = 2;
+var correctPoints = 10;
+var timerPenalty = -20;
 var maxQuestions = 10;
+var timer;
+var timerCount;
+
 
 function startGame () {
 // use [...] as spread operator to pull all available questions in the questions array that was created and create a new array
     questionCounter = 0;
     score = 0;
+    timerCountdown = 240;
     availableQuestions = [...questions];
     console.log(availableQuestions);
     getNewQuestion();
+    startTimer();
 };
 
 getNewQuestion = () => {
-    if(availableQuestions.length === 0 || questionCounter >= maxQuestions)
-        return window.location.assign("#");
+    if(availableQuestions.length == 0 || questionCounter >= maxQuestions) {
 
+        localStorage.setItem('mostRecentScore', score);
+        return window.location.assign('./endscreen.html');
+}
     questionCounter++;
     console.log(questionCounter);
+
+    questionCountText.innerText = questionCounter
+
+
     var questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
         question.innerText = currentQuestion.question
@@ -198,17 +212,63 @@ getNewQuestion = () => {
 
 };
 
+// The setTimer function starts and stops the timer and triggers winGame() and loseGame()
+function startTimer() {
+    // Sets timer
+    timer = setInterval(function() {
+      timerCount--;
+      if (timerCount >= 0) {
+
+            if ( determinedResult === 'incorrect'){
+                incrementTimer(timerPenalty);
+            };
+
+        };
+  }, 1000);;
+};
+
 options.forEach(option => {
     option.addEventListener("click", e => {
         if(!acceptingAnswer) return;
         acceptingAnswer = false;
         var selectedOption = e.target;
         var selectedAnswer = selectedOption.dataset['number'];
-        console.log(selectedAnswer);
+        console.log(selectedAnswer, currentQuestion.answer);
+        console.log(selectedAnswer == currentQuestion.answer);
+
+    var determinedResult = 'incorrect';
+        if (selectedAnswer == currentQuestion.answer)
+        {
+            determinedResult = 'correct';
+        };
+            console.log(determinedResult);
+
+    if (determinedResult === 'correct') {
+        incrementScore(correctPoints);
+    }; 
+
+    selectedOption.parentElement.classList.add(determinedResult);
+    
+    setTimeout(() => {
+        selectedOption.parentElement.classList.remove(determinedResult);
         getNewQuestion();
+    }, 1000);
 
     });
 
 });
+
+incrementScore = num => {
+    score += num;
+    scoreText.innerText = score;
+    console.log(score);
+};
+
+incrementTimer = num => {
+    timer += num;
+    timerCountdown.innerText = timer;
+    console.log (timer);
+};
+
 
 startGame();
