@@ -151,6 +151,19 @@ h4 {
     width: 20rem;
   }
 
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.5rem 2rem 0 #222532;
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
 form {
     width: 100%;
     display: flex;

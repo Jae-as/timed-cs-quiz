@@ -168,17 +168,16 @@ let questions = [
 ];
 
 var correctPoints = 10;
-var timerPenalty = -20;
 var maxQuestions = 10;
+var determinedResult;
 var timer;
-var timerCount;
-
+var timerPenalty = -20;
+var timerCount = 240;
 
 function startGame () {
 // use [...] as spread operator to pull all available questions in the questions array that was created and create a new array
     questionCounter = 0;
     score = 0;
-    timerCountdown = 240;
     availableQuestions = [...questions];
     console.log(availableQuestions);
     getNewQuestion();
@@ -214,18 +213,21 @@ getNewQuestion = () => {
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
 function startTimer() {
-    // Sets timer
-    timer = setInterval(function() {
-      timerCount--;
-      if (timerCount >= 0) {
-
-            if ( determinedResult === 'incorrect'){
-                incrementTimer(timerPenalty);
-            };
-
-        };
-  }, 1000);;
+    timer = setInterval( tic, 1000);
 };
+
+function tic (){
+    timerCount--;
+    timerCountdown.innerText = timerCount;
+    if (timerCount <= 0 ) {
+    clearTimer()
+    }
+};
+
+function clearTimer () {
+    clearInterval(timer)
+};
+
 
 options.forEach(option => {
     option.addEventListener("click", e => {
@@ -236,16 +238,19 @@ options.forEach(option => {
         console.log(selectedAnswer, currentQuestion.answer);
         console.log(selectedAnswer == currentQuestion.answer);
 
-    var determinedResult = 'incorrect';
+    determinedResult = 'incorrect';
         if (selectedAnswer == currentQuestion.answer)
         {
             determinedResult = 'correct';
         };
             console.log(determinedResult);
+        if (determinedResult === 'correct') {
+            incrementScore(correctPoints);
+        
+        } else {
+            incrementTimer(timerPenalty);
+        };
 
-    if (determinedResult === 'correct') {
-        incrementScore(correctPoints);
-    }; 
 
     selectedOption.parentElement.classList.add(determinedResult);
     
@@ -265,9 +270,9 @@ incrementScore = num => {
 };
 
 incrementTimer = num => {
-    timer += num;
-    timerCountdown.innerText = timer;
-    console.log (timer);
+    timerCount += num;
+    timerCountdown.innerText = timerCount;
+    console.log (timerCount);
 };
 
 
