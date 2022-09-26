@@ -51,17 +51,20 @@ h3 {
 }
 
 h4 {
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
 /* Utility Classes */
 
-.homepage-container {
-    width: 100vw;
-    height: 100vh;
-    max-width: 80rem;
-    margin: 0 auto;
+.container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    margin-top: 10rem;
+    margin-bottom: 2rem;
+    flex-direction: column;
 }
 
 .homepage-header{
@@ -128,4 +131,27 @@ h4 {
     padding: 1rem;
     text-align: center;
     cursor: pointer;
+  }
+
+  .scoreboard ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+  }
+
+  .scoreboard li {
+    display: inline-block;
+    margin: .3rem;
+  }
+
+  .quiz-timer {
+    background-color: #6525E4;
+    text-align: center;
+    border-radius: 1.6rem;
+    font-weight: 700;
+  }
+
+  btn {
+    top: 1rem;
+    left: 2rem;
   }
