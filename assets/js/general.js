@@ -213,10 +213,10 @@ getNewQuestion = () => {
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
 function startTimer() {
-    timer = setInterval( tic, 1000);
+    timer = setInterval( tik, 1000);
 };
 
-function tic (){
+function tik (){
     timerCount--;
     timerCountdown.innerText = timerCount;
     if (timerCount <= 0 ) {
