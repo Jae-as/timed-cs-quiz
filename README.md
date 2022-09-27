@@ -39,3 +39,4 @@ The following images show the web application's appearance and functionality:
 ![Image of high score page](./assets/images/timedquiz4.png)
 
 ## Deployed Application Link
+https://jae-as.github.io/timed-cs-quiz/
