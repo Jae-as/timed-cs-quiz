@@ -172,7 +172,7 @@ var maxQuestions = 10;
 var determinedResult;
 var timer;
 var timerPenalty = -20;
-var timerCount = 240;
+var timerCount = 200;
 
 function startGame () {
 // use [...] as spread operator to pull all available questions in the questions array that was created and create a new array
@@ -221,6 +221,7 @@ function tik (){
     timerCountdown.innerText = timerCount;
     if (timerCount <= 0 ) {
     clearTimer()
+    window.location.assign('./youlose.html')
     }
 };
 

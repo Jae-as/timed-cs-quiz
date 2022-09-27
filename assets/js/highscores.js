@@ -9,4 +9,5 @@ highScoresList.innerHTML = highScores.map(score => {
 clearScores.addEventListener('click', 
     function clearStorage() {
         localStorage.clear();
+        window.location.reload();
     });
